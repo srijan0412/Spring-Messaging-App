@@ -1,5 +1,6 @@
 package com.springmessagingapp.controller;
 
+import com.springmessagingapp.dto.User;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -18,5 +19,11 @@ public class HelloController {
     @RequestMapping("/hello/{name}")
     public String sayHelloParam(@PathVariable String name){
         return "Hello " + name + "!";
+    }
+
+    // Post Request Handler to take first name and last name in the body
+    @PostMapping("/hello/post")
+    public String sayHelloBody(@RequestBody User user){
+        return "Hello " + user.getFirstName() + " " + user.getLastName() +  "!";
     }
 }
