@@ -26,4 +26,10 @@ public class HelloController {
     public String sayHelloBody(@RequestBody User user){
         return "Hello " + user.getFirstName() + " " + user.getLastName() +  "!";
     }
+
+    // Put Request Handler to take first name from the path variable and lastName from the query params and say Hello Mark from bridgeLabz
+    @PutMapping("hello/put/{firstName}")
+    public String sayHello(@PathVariable String firstName, @RequestParam(value = "lastName") String lastName) {
+        return "Hello " + firstName + " " + lastName + " from BridgeLabz!";
+    }
 }
